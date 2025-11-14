@@ -1,0 +1,33 @@
+{
+  "base_profile": {
+    "platforms": [
+      "Direct3D_SM40",
+      "Direct3D_SM50",
+      "Direct3D_SM60",
+      "Direct3D_SM65",
+      "ESSL_300",
+      "ESSL_310",
+      "METAL"
+    ],
+    "merge_source": ["../vanilla"]
+  },
+  "profiles": {
+    "windows": {
+      "platforms": [
+        "Direct3D_SM40",
+        "Direct3D_SM50",
+        "Direct3D_SM60",
+        "Direct3D_SM65"
+      ]
+    },
+    "android": {
+      "platforms": ["ESSL_300", "ESSL_310"]
+    },
+    "linux": {
+      "platforms": ["ESSL_310"]
+    },
+    "ios": {
+      "platforms": ["METAL", "ESSL_300", "ESSL_310"]
+    }
+  }
+}

@@ -1,98 +1,98 @@
 import os
+import json
 
 is_done = False
+NAME = ""
+SUBPACK_DES = ""
+SUBPACK_MATS_LIST = []
 
-while is_done == False:
+ALL_MATERIALS = [
+    "RenderChunk",
+    "Clouds",
+    "Sky",
+    "LegacyCubemap",
+    "SunMoon"
+]
 
-    # lay thong tin co ban ve subpack
+while not is_done:
+    SUBPACK_MATS_LIST = []
+
     print("---------- Create subpack ----------")
-    NAME = input("Type subpack name:")
-    SUBPACK_DES = input("Type subpack description:")
+    NAME = input("Type subpack name: ")
+    SUBPACK_DES = input("Type subpack description: ")
     print(" ")
 
-    # yeu cau nguoi dung chon material muon build cho subpack
     print("---------- Choose materials ----------")
 
-    IF_CHOOSE_ALL = input("do you want to choose all material? (y/n):")
+    IF_CHOOSE_ALL = input("Do you want to choose all material? (y/n): ")
+    
     if IF_CHOOSE_ALL.lower() == 'y':
-        SUBPACK_MATS = "RenderChunk Clouds Sky LegacyCubemap SunMoon "
+        SUBPACK_MATS_LIST = ALL_MATERIALS
+    
     elif IF_CHOOSE_ALL.lower() == 'n':
-        SUBPACK_MATS = ""
-
-        IS_RDC = input("do you want choose RenderChunk? (y/n):")
-        if IS_RDC.lower() == 'y':
-            SUBPACK_MATS += "RenderChunk "
-    
-        IS_CLOUDS = input("do you want choose Clouds? (y/n):")
-        if IS_CLOUDS.lower() == 'y':
-            SUBPACK_MATS += "Clouds "
-
-        IS_SKY = input("do you want choose Sky? (y/n):")
-        if IS_SKY.lower() == 'y':
-            SUBPACK_MATS += "Sky "
-    
-        IS_LCBM = input("do you want choose LegacyCubemap? (y/n):")
-        if IS_LCBM.lower() == 'y':
-            SUBPACK_MATS += "LegacyCubemap "
-    
-        IS_SUNMOON = input("do you want choose SunMoon? (y/n):")
-        if IS_SUNMOON.lower() == 'y':
-            SUBPACK_MATS += "SunMoon "
+        print("Starting manual selection...")
+        for material in ALL_MATERIALS:
+            choice = input(f"Do you want to choose {material}? (y/n): ")
+            if choice.lower() == 'y':
+                SUBPACK_MATS_LIST.append(material)
         
+        if not SUBPACK_MATS_LIST:
+             print("Warning: No materials selected.")
+
     else:
-        print("???")
+        print("Invalid option. Please choose 'y' or 'n'. Restarting...")
+        print(" ")
+        continue
+
     print(" ")
 
-    # xem lai tat ca thong tin ve subpack vua tao
-    if IF_CHOOSE_ALL.lower() == 'y' or IF_CHOOSE_ALL.lower() == 'n':
-        print("---------- Review ----------")
+    print("---------- Review ----------")
+    print("Subpack name:", NAME)
+    print("Subpack Description:", SUBPACK_DES)
+    print("Subpack materials:", SUBPACK_MATS_LIST)
+    print(" ")
 
-        print("Subpack name:", NAME)
-        print("Subpack Description:", SUBPACK_DES)
-        print("Subpack materials:", SUBPACK_MATS)
-        print(" ")
+    print("---------- Finalize ----------")
+    final_choice = input("Agree with this information? (y/n): ")
 
-        print("---------- hmm ----------")
-
-        final_choice = input("agree with this information? (y/n):")
-
-        if final_choice.lower() == 'y':
-           print("preparing to create subpack config...")
-           is_done = True
-
-        elif final_choice.lower() == 'n':
-            print("back to information entry step...")
-            is_done = False
-
-        else:
-            print("Invalid option, your option must be 'y' or 'n', mark it done and create subpack config.")
-            is_done = True
-
-        print(" ")
+    if final_choice.lower() == 'y':
+       print("Preparing to create subpack config...")
+       is_done = True
+    elif final_choice.lower() == 'n':
+        print("Back to information entry step...")
+        is_done = False
     else:
-        is_done == False
+        print("Invalid option. Marking it done and creating subpack config based on current data.")
+        is_done = True
+
+    print(" ")
 
 if is_done:
-    print("---------- create config ----------")
+    print("---------- Create Config File ----------")
 
-    materials_cleaned = SUBPACK_MATS.strip()
-    
-    config_content_bash = (
+    mats_formatted_for_bash_array = ' '.join(f'"{mat}"' for mat in SUBPACK_MATS_LIST)
+    config_materials_line = f'SUBPACK_MATERIALS=({mats_formatted_for_bash_array})'
+
+    config_content = (
         f'SUBPACK_NAME="{NAME}"\n'
         f'SUBPACK_DESCRIPTION="{SUBPACK_DES}"\n'
-        f'SUBPACK_MATERIALS="{materials_cleaned}"'
+        f'{config_materials_line}\n'
     )
     
     file_path = "scripts/cache/subpack.cfg"
     
-    bash_command = f"printf '%s' '{config_content_bash}' > {file_path}"
-    
-    result = os.system(bash_command)
-
-    if result == 0:
+    try:
+        os.makedirs(os.path.dirname(file_path), exist_ok=True)
+        
+        with open(file_path, 'w') as f:
+            f.write(config_content)
+        
         print("Done!")
-        print("Config saved at scripts/cache/subpack.cfg")
-        print("file content:")
-        os.system(f'cat scripts/cache/subpack.cfg')
-    else:
-        print("Error.")
+        print(f"Config saved at {file_path}")
+        print("File content:")
+        print("-" * 20)
+        print(config_content)
+        print("-" * 20)
+        
+    except Exception as e:
+        print(f"Error writing file: {e}")

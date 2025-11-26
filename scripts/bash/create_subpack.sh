@@ -20,6 +20,6 @@ cp -r assets/db-assets/* assets/subpacks/$SUBPACK_NAME/
 cp -r scripts/cache/subpack.cfg include/configs/subpacks/$SUBPACK_NAME/subpack.cfg
 sleep 0.9
 echo "cleaning cache config..."
-rm -rf scripts/cache/subpack.cfg
+rm -rf scripts/cache
 sleep 0.5
 echo "done!"

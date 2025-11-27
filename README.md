@@ -78,7 +78,7 @@ or
 sudo python -m pip install rich lazurite
 ```
 
-For iOS rootless jailbreak, you must patch .so files of python modules (pyjson5, cpuid, raw_aes) from macOS to iOS to be executable by `vtool`:
+For iOS rootless jailbreak, you must patch .so files of python modules (pyjson5, cpuid, raw_aes) from macOS to iOS by `vtool` to be executable:
 ```
 sudo apt install vtool
 export PYMP="/var/jb/usr/local/lib/python3.12/site-packages"

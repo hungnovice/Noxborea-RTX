@@ -44,7 +44,7 @@ winget install --id Git.Git -e --id Python.Python.3 -e --id GNU.Wget2 -e
 ### Android (Termux)
 
 ```
-pkg install git python3 python3-pip curl
+pkg install git python3 python3-pip wget
 ```
 
 ### iOS
@@ -52,7 +52,7 @@ For iOS environment, currently require jailbreak. Both rootful and rootless are 
 
 - Add [CongChu's Repository](https://congcq.github.io) to Sileo/Zebra
 
-- Find and install Terminal, git, curl and python3.12
+- Find and install Terminal, git, wget and python3.12
 
 - Open Terminal, run: `sudo python -m ensurepip --upgrade`
 

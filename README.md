@@ -109,6 +109,8 @@ sudo vtool -arch arm64 -set-build-version 2 14.0 16.0 -replace -output $PYMP/Cry
 - Android
 - iOS
 
+- iOS
+
 ### Main file script:
 ```
 ./build.sh

@@ -1,0 +1,72 @@
+{
+  "format_version": 2,
+  "header": {
+    "name": "Newb X Legacy",
+    "description": "\u00a7cOnly works with Patched Minecraft\n\u00a77- An enchanced vanilla shader for Minecraft!\nv16.0-android\n\u00a73https://devendrn.github.io/newb-shader/\n",
+    "uuid": "95f774cf-4afa-73e7-a21a-72146307b1d2",
+    "version": [
+      0,
+      16,
+      0
+    ],
+    "min_engine_version": [
+      1,
+      21,
+      20
+    ]
+  },
+  "modules": [
+    {
+      "type": "resources",
+      "uuid": "900f3d8b-37b4-465f-8f56-941687e36c35",
+      "version": [
+        0,
+        16,
+        0
+      ]
+    }
+  ],
+  "subpacks": [
+    {
+      "folder_name": "rounded_clouds",
+      "name": "Rounded Clouds",
+      "memory_tier": 1
+    },
+    {
+      "folder_name": "box_clouds",
+      "name": "Box Clouds",
+      "memory_tier": 1
+    },
+    {
+      "folder_name": "chunk_anim",
+      "name": "Chunk loading animation",
+      "memory_tier": 1
+    },
+    {
+      "folder_name": "no_wave_no_fog",
+      "name": "No fog and wave effects",
+      "memory_tier": 1
+    },
+    {
+      "folder_name": "no_fog",
+      "name": "No fog effect",
+      "memory_tier": 1
+    },
+    {
+      "folder_name": "no_wave",
+      "name": "No wave effects",
+      "memory_tier": 1
+    },
+    {
+      "folder_name": "default",
+      "name": "Default",
+      "memory_tier": 1
+    }
+  ],
+  "metadata": {
+    "authors": [
+      "devendrn"
+    ],
+    "url": "https://devendrn.github.io/newb-shader/"
+  }
+}

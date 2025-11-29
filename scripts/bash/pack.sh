@@ -73,6 +73,14 @@ while [[ $# -gt 0 ]]; do
                     echo " "
                     echo "---------- Building subpacks materials for $PLATFORM ----------"
                     echo "no subpack config detected, stop building subpacks materials"
+
+                echo " "
+                echo "---------- Building pack manifest for $PLATFORM ----------"
+                echo "Building out/manifest.json"
+                python scripts/python/build_manifest.py
+                sleep 0.6
+                echo "Move manifest.json to pack dir..."
+                mv out/manifest.json out/platform/android/pack/manifest.json
                 fi
 
             # ------ iOS ------
@@ -137,6 +145,14 @@ while [[ $# -gt 0 ]]; do
                     echo " "
                     echo "---------- Building subpacks materials for $PLATFORM ----------"
                     echo "no subpack config detected, stop building subpacks materials"
+
+                echo " "
+                echo "---------- Building pack manifest for $PLATFORM ----------"
+                echo "Building out/manifest.json"
+                python scripts/python/build_manifest.py
+                sleep 0.6
+                echo "Move manifest.json to pack dir..."
+                mv out/manifest.json out/platform/ios/pack/manifest.json
                 fi
 
             # ------ Windows ------
@@ -201,6 +217,14 @@ while [[ $# -gt 0 ]]; do
                     echo " "
                     echo "---------- Building subpacks materials for $PLATFORM ----------"
                     echo "no subpack config detected, stop building subpacks materials"
+
+                echo " "
+                echo "---------- Building pack manifest for $PLATFORM ----------"
+                echo "Building out/manifest.json"
+                python scripts/python/build_manifest.py
+                sleep 0.6
+                echo "Move manifest.json to pack dir..."
+                mv out/manifest.json out/platform/windows/pack/manifest.json
                 fi
             
             fi

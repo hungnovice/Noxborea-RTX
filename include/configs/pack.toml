@@ -1,0 +1,8 @@
+name= "Miration Shader Minecraft Bedrock"
+version = [0, 0, 1]
+min_supported_mc_version = [1, 21, 111]
+description = "A custom Render Dragon shader for minecraft bedrock edition make by CyberGangz Studio."
+authors = ["ngmvix2010", "JaggerFinn", "congcq"]
+url = "https://github.com/CyberGangzTeam/msbe-src"
+# use https://www.uuidgenerator.net/version4
+uuid = "057e527a-fe63-4144-ab2e-da213dfa8439"

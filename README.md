@@ -56,38 +56,38 @@ For iOS environment, currently require jailbreak. Both rootful and rootless are 
 
 - Open Terminal, run: `sudo python -m ensurepip --upgrade`
 
-## Install lazurite
+## Install needed python module
 
 ### Run:
 
 ```
-pip install rich lazurite
+pip install rich lazurite toml
 ```
 or
 ```
-python -m pip install rich lazurite
+python -m pip install rich lazurite toml
 ```
 
 ### For Linux (maybe you need it):
 
 ```
-pip install --break-system-packages rich lazurite
+pip install --break-system-packages rich lazurite toml
 ```
 or
 ```
-python -m pip install --break-system-packages rich lazurite
+python -m pip install --break-system-packages rich lazurite toml
 ```
 
 ### For iOS:
 
 ```
-sudo pip install rich lazurite
+sudo pip install rich lazurite toml
 ```
 
 or
 
 ```
-sudo python -m pip install rich lazurite
+sudo python -m pip install rich lazurite toml
 ```
 
 For iOS rootless jailbreak, you must patch .so files of python modules (pyjson5, cpuid, raw_aes) from macOS to iOS by `vtool` to be executable:
@@ -107,8 +107,6 @@ sudo vtool -arch arm64 -set-build-version 2 14.0 16.0 -replace -output $PYMP/Cry
 - Linux
 - MacOS
 - Android
-- iOS
-
 - iOS
 
 ### Main file script:

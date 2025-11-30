@@ -81,13 +81,13 @@ python -m pip install --break-system-packages rich lazurite toml
 ### For iOS:
 
 ```
-sudo pip install rich lazurite
+sudo pip install rich lazurite toml
 ```
 
 or
 
 ```
-sudo python -m pip install rich lazurite
+sudo python -m pip install rich lazurite toml
 ```
 
 For iOS rootless jailbreak, you must patch .so files of python modules (pyjson5, cpuid, raw_aes) from macOS to iOS by `vtool` to be executable:
